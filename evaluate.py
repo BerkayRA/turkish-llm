@@ -30,6 +30,7 @@ from pathlib import Path
 import _tok  # noqa: F401
 from tr_api import Tokenizer, TokenizerConfig
 import tr_fertility as F
+import morpheme_bpe
 
 REPO = Path(__file__).resolve().parent
 
@@ -41,6 +42,10 @@ def describe(label):
         return (f"{label} (baseline)", None)
     if label == "morpheme-aware":
         return ("morpheme-aware (segment-then-subword)", None)
+    if label.startswith("morpheme_bpe_"):
+        tail = label.rsplit("_", 1)[1]
+        return ("morpheme-BPE (soft: analyzer + merges)",
+                int(tail) if tail.isdigit() else None)
     if label.startswith("sp_unigram_"):
         return ("SentencePiece Unigram", int(label.rsplit("_", 1)[1]))
     if label.startswith("sp_morph_"):
@@ -143,6 +148,27 @@ class MorphemeAwareAdapter:
         for m in morphs:
             pieces.extend(self._sp.encode(m, out_type=str))
         return pieces
+
+
+class MorphemeBPEAdapter:
+    """Soft morphology-informed tokenizer: analyse a word into morphemes,
+    then apply learned morpheme-BPE merges. Token boundaries are always
+    morpheme boundaries (precision 1.0); merges of frequent morpheme
+    sequences pull fertility down toward the subword baselines."""
+
+    def __init__(self, merges_path, tok, label=None):
+        self._bpe = morpheme_bpe.MorphemeBPE.from_file(merges_path)
+        self._tok = tok
+        self.name = label or Path(merges_path).stem
+
+    def encode(self, word):
+        a = self._tok.tokenize(word, suggest=False, tail_repair=False,
+                               alternatives=False, split_clitics=False)
+        morphs = ([m["chunk"] for m in a.get("morphemes", [])]
+                  if a.get("parsed") else [])
+        if not morphs:
+            morphs = [word]
+        return self._bpe.encode(morphs)
 
 
 def discover(models_dir):
@@ -265,6 +291,9 @@ def main(argv):
     if largest_unigram and largest_unigram.exists():
         run("morpheme-aware", MorphemeAwareAdapter(largest_unigram, tok,
                                                    label="morpheme-aware"))
+    # Soft morpheme-BPE models (analyzer + learned morpheme merges)
+    for p in sorted(Path(args.models).glob("morpheme_bpe_*.json")):
+        run(p.stem, MorphemeBPEAdapter(str(p), tok, label=p.stem))
 
     # Table
     rows.sort(key=lambda r: r["fertility"])
