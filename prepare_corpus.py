@@ -22,6 +22,7 @@ Usage:
 """
 
 import argparse
+import itertools
 import sys
 from pathlib import Path
 
@@ -57,6 +58,9 @@ def main(argv):
                      help="UD treebank dir; uses '# text =' sentences")
     src.add_argument("--text", help="plain text corpus, one line per doc")
     ap.add_argument("--out", default="data", help="output directory")
+    ap.add_argument("--max-lines", type=int, default=None,
+                    help="process at most N input lines (the analyzer is slow; "
+                         "use a sample of a large corpus for sp_morph / eval)")
     args = ap.parse_args(argv[1:])
 
     if not args.conllu_dir and not args.text:
@@ -72,7 +76,11 @@ def main(argv):
 
     sentences = (ud_sentences(args.conllu_dir) if args.conllu_dir
                  else text_lines(args.text))
-    print(f"Source: {args.conllu_dir or args.text}", file=sys.stderr)
+    if args.max_lines:
+        sentences = itertools.islice(sentences, args.max_lines)
+    print(f"Source: {args.conllu_dir or args.text}"
+          + (f" (max {args.max_lines} lines)" if args.max_lines else ""),
+          file=sys.stderr)
 
     tok = Tokenizer(TokenizerConfig(
         suggest_on_oov=False, include_alternatives=False))
@@ -90,6 +98,10 @@ def main(argv):
                 continue
             result = tok.tokenize_text(
                 s, suggest=False, tail_repair=False, alternatives=False)
+            # Skip lines with no word tokens (pure punctuation/numbers): they
+            # would write a blank morpheme line and add noise to sp_morph.
+            if not any(t["kind"] == "word" for t in result["tokens"]):
+                continue
             raw_f.write(N.render_surface(result, fold=False) + "\n")
             # morpheme tokens separated by spaces (each morpheme a token)
             morph_f.write(N.render_morphemes(result, sep=" ") + "\n")

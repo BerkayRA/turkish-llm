@@ -18,3 +18,12 @@ if not (TOKENIZER_DIR / "tr_api.py").exists():
     raise RuntimeError(
         f"turkish-tokenizer submodule not found at {TOKENIZER_DIR}. "
         "Run: git submodule update --init --recursive")
+# A present tr_api.py with absent data files means the submodule was only
+# partially initialised (e.g. shallow clone without LFS). Check one of the
+# essential JSON data files so the error surfaces here rather than deep
+# inside load_inventory() with a cryptic FileNotFoundError.
+if not (TOKENIZER_DIR / "inventory.json").exists():
+    raise RuntimeError(
+        f"turkish-tokenizer data files missing at {TOKENIZER_DIR} "
+        "(inventory.json not found). "
+        "Run: git submodule update --init --recursive")

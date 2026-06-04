@@ -30,7 +30,8 @@ REPO = Path(__file__).resolve().parent
 SPECIALS = ["<pad>", "<unk>", "<s>", "</s>"]
 
 
-def train_sentencepiece(corpus, model_prefix, vocab_size, model_type="unigram"):
+def train_sentencepiece(corpus, model_prefix, vocab_size, model_type="unigram",
+                        input_sentence_size=0):
     spm.SentencePieceTrainer.train(
         input=str(corpus),
         model_prefix=str(model_prefix),
@@ -39,6 +40,10 @@ def train_sentencepiece(corpus, model_prefix, vocab_size, model_type="unigram"):
         character_coverage=0.9995,      # cover (nearly) all Turkish characters
         byte_fallback=True,             # never emit <unk>
         hard_vocab_limit=False,         # tiny corpora may not reach vocab_size
+        # On a large corpus, train from a shuffled sample of this many
+        # sentences (0 = use all). A few million is plenty for a 32k+ vocab.
+        input_sentence_size=input_sentence_size,
+        shuffle_input_sentence=True,
         pad_id=0, unk_id=1, bos_id=2, eos_id=3,
         normalization_rule_name="nfkc",
     )
@@ -62,26 +67,39 @@ def main(argv):
                     help="byte-level BPE vocab size (0 to skip)")
     ap.add_argument("--no-morph", action="store_true",
                     help="skip the morpheme-aware variant")
+    ap.add_argument("--input-sentence-size", type=int, default=0,
+                    help="SentencePiece: train from a shuffled sample of this "
+                         "many sentences (0 = all; use a few million on a "
+                         "large corpus)")
     args = ap.parse_args(argv[1:])
 
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     raw, morph = Path(args.raw), Path(args.morph)
+    if not raw.exists():
+        sys.exit(f"raw corpus not found: {raw} — run clean_corpus.py / "
+                 f"prepare_corpus.py first")
     trained = []
 
     for v in args.vocab_sizes:
         try:
-            train_sentencepiece(raw, out / f"sp_unigram_{v}", v)
+            train_sentencepiece(raw, out / f"sp_unigram_{v}", v,
+                                input_sentence_size=args.input_sentence_size)
             trained.append(f"sp_unigram_{v}.model")
             print(f"[ok] sp_unigram_{v}", file=sys.stderr)
-        except Exception as e:
+        except RuntimeError as e:
+            # SentencePiece raises RuntimeError when the corpus is too small
+            # to fill the requested vocab or the sentence limit is too tight.
+            # Any other exception (OOM, disk full, etc.) propagates upward.
             print(f"[skip] sp_unigram_{v}: {e}", file=sys.stderr)
         if not args.no_morph and morph.exists():
             try:
-                train_sentencepiece(morph, out / f"sp_morph_{v}", v)
+                train_sentencepiece(morph, out / f"sp_morph_{v}", v,
+                                    input_sentence_size=args.input_sentence_size)
                 trained.append(f"sp_morph_{v}.model")
                 print(f"[ok] sp_morph_{v}", file=sys.stderr)
-            except Exception as e:
+            except RuntimeError as e:
+                # Same rationale as sp_unigram above.
                 print(f"[skip] sp_morph_{v}: {e}", file=sys.stderr)
 
     if args.byte_bpe:
@@ -90,7 +108,9 @@ def main(argv):
             train_byte_bpe(raw, out / f"byte_bpe_{v}.json", v)
             trained.append(f"byte_bpe_{v}.json")
             print(f"[ok] byte_bpe_{v}", file=sys.stderr)
-        except Exception as e:
+        except (RuntimeError, ValueError) as e:
+            # ByteLevelBPETokenizer raises ValueError when vocab_size
+            # exceeds unique byte sequences in a tiny corpus.
             print(f"[skip] byte_bpe_{v}: {e}", file=sys.stderr)
 
     print(f"\nTrained {len(trained)} tokenizers in {out}/:", file=sys.stderr)

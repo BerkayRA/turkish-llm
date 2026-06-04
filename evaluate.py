@@ -21,6 +21,7 @@ Usage:
 """
 
 import argparse
+import contextlib
 import json
 import sys
 from datetime import datetime, timezone
@@ -50,7 +51,11 @@ def describe(label):
 
 
 def corpus_word_count(path):
-    """Fast whitespace word count over the whole corpus (for the report)."""
+    """Whitespace word count over the whole corpus, used once for the report
+    header. This is a sequential read of the full file (~3.4 GB) and takes
+    10-30 s; it runs only when --no-report is NOT set. The scored slice
+    (rows[0]["words"]) already tracks words processed within the limit, so
+    this function exists solely to report the untruncated corpus total."""
     n = 0
     with open(path, encoding="utf-8") as f:
         for line in f:
@@ -66,8 +71,10 @@ def commentary(rows):
     if not real:
         return "No trained tokenizers to compare."
     best_fert = min(real, key=lambda r: r["fertility"])
-    best_f1 = max(rows, key=lambda r: r["boundary_f1"])
-    best_rec = max(rows, key=lambda r: r["boundary_recall"])
+    # Restrict "best" picks to real tokenizers — the char baseline trivially
+    # maxes recall (it cuts everywhere) and would dominate every run.
+    best_f1 = max(real, key=lambda r: r["boundary_f1"])
+    best_rec = max(real, key=lambda r: r["boundary_recall"])
     out.append(f"- **Lowest fertility (best compression):** `{best_fert['label']}` "
                f"at {best_fert['fertility']:.3f} tokens/word.")
     out.append(f"- **Best morpheme alignment (boundary F1):** `{best_f1['label']}` "
@@ -115,8 +122,21 @@ class MorphemeAwareAdapter:
     def encode(self, word):
         a = self._tok.tokenize(word, suggest=False, tail_repair=False,
                                alternatives=False, split_clitics=False)
-        morphs = ([m["chunk"] for m in a.get("morphemes", [])]
-                  if a.get("parsed") else [])
+        # Guard against a clitic-split ("segments") response: split_clitics=False
+        # is passed above so this branch is unreachable at runtime, but we
+        # make the extraction explicit so a future refactor cannot silently
+        # return empty morphemes for clitic-bearing words.
+        if a.get("segments"):
+            # Flatten morphemes across all clitic segments.
+            morphs = [
+                m["chunk"]
+                for seg in a["segments"]
+                for m in (seg.get("morphemes") or [])
+            ]
+        elif a.get("parsed"):
+            morphs = [m["chunk"] for m in a.get("morphemes", [])]
+        else:
+            morphs = []
         if not morphs:
             morphs = [word]
         pieces = []
@@ -215,7 +235,12 @@ def main(argv):
     rows = []
 
     def run(label, adapter):
-        m = F.score_corpus(adapter, lines(), tok, limit=args.limit)
+        # contextlib.closing ensures the file handle inside the lines()
+        # generator is released promptly even when score_corpus stops
+        # iterating early (at limit). CPython's refcount handles this
+        # automatically, but other runtimes (PyPy, Jython) do not.
+        with contextlib.closing(lines()) as corpus_iter:
+            m = F.score_corpus(adapter, corpus_iter, tok, limit=args.limit)
         m["label"] = label
         rows.append(m)
         print(f"  scored {label:22s} fertility={m['fertility']:.3f}", file=sys.stderr)
@@ -225,10 +250,17 @@ def main(argv):
     run("char", F.CharAdapter())
     # Trained models
     largest_unigram = None
+    best_uni_vocab = -1
     for label, factory in discover(args.models):
         run(label, factory())
         if label.startswith("sp_unigram_"):
-            largest_unigram = Path(args.models) / f"{label}.model"
+            try:
+                v = int(label.rsplit("_", 1)[1])
+            except ValueError:
+                v = -1
+            if v > best_uni_vocab:                 # numeric, not lexicographic
+                best_uni_vocab = v
+                largest_unigram = Path(args.models) / f"{label}.model"
     # Morpheme-aware (segment-then-subword over the largest plain unigram)
     if largest_unigram and largest_unigram.exists():
         run("morpheme-aware", MorphemeAwareAdapter(largest_unigram, tok,
@@ -250,7 +282,9 @@ def main(argv):
     if not args.no_report:
         ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
         scored = rows[0]["words"] if rows else 0
-        mpw = (sum(r["morphemes_per_word"] for r in rows) / len(rows)) if rows else 0.0
+        # The analyzer reference is identical across tokenizers (same corpus
+        # slice), so one row's value is the corpus figure — not an average.
+        mpw = rows[0]["morphemes_per_word"] if rows else 0.0
         meta = {
             "timestamp": ts,
             "corpus": args.corpus,
