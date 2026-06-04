@@ -3,6 +3,13 @@
 __pycache__/
 *.pyc
 
+# Large corpus files — data, never commit (GitHub caps at 100 MB).
+# Keep big corpora in data/ or point prepare_corpus.py --text at them.
+*-export.txt
+ts_corpus_ver_2-export.txt
+*.corpus
+corpus*.txt
+
 # Generated artifacts
 data/
 models/

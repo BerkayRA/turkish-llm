@@ -40,8 +40,13 @@ python prepare_corpus.py --out data
 python train_tokenizer.py --vocab-sizes 16000 32000 48000 --byte-bpe 32000
 
 # 3. Compare them on Turkish morphological fitness.
+#    Writes a detailed report (reports/eval_*.md + .json) by default.
 python evaluate.py --corpus data/corpus.raw.txt
 ```
+
+Every evaluation writes a version-controlled report to `reports/` — run
+metadata (corpus word count, vocab sizes, algorithms), the full metric table,
+and auto-generated commentary on relative performance. See `docs/EVALUATION.md`.
 
 Three tokenizer families are trained and compared:
 - **`sp_unigram_<V>`** — SentencePiece Unigram on raw text (the standard baseline).
@@ -91,6 +96,13 @@ set up to answer it.
 4. **Learning project**: reimplement BPE (and Unigram) from scratch to compare
    against the library tokenizers and the morphology-aware variants (see the
    `turkish-tokenizer` SUGGESTIONS).
+
+## Documentation
+
+- [docs/DESIGN.md](docs/DESIGN.md) — architecture, the two-repo/submodule split, the tokenizer families
+- [docs/METRICS.md](docs/METRICS.md) — fertility, tokens/morpheme, boundary precision/recall/F1, how to read them
+- [docs/USAGE.md](docs/USAGE.md) — setup and commands (prepare / train / evaluate)
+- [docs/EVALUATION.md](docs/EVALUATION.md) — methodology, reports, choosing a tokenizer
 
 ## Layout
 
