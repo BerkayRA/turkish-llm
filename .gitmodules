@@ -1,0 +1,3 @@
+[submodule "vendor/turkish-tokenizer"]
+	path = vendor/turkish-tokenizer
+	url = https://github.com/BerkayRA/turkish-tokenizer.git
