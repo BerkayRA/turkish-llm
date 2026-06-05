@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "timestamp": "20260605T074742Z",
+    "scorer": "char_unigram(corpus.train.txt)",
+    "dataset": "benchmarks/probe.jsonl"
+  },
+  "overall_accuracy": 0.43333333333333335,
+  "by_category": {
+    "agreement": {
+      "pairs": 80,
+      "accuracy": 0.5
+    },
+    "possessive": {
+      "pairs": 80,
+      "accuracy": 0.25
+    },
+    "harmony": {
+      "pairs": 80,
+      "accuracy": 0.55
+    }
+  }
+}

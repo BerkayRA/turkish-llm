@@ -1,0 +1,240 @@
+{"category": "agreement", "good": "ben geldim", "bad": "ben geldin", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen geldin", "bad": "sen geldik", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz geldik", "bad": "biz geldiniz", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz geldiniz", "bad": "siz geldim", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben gittim", "bad": "ben gittin", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen gittin", "bad": "sen gittik", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz gittik", "bad": "biz gittiniz", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz gittiniz", "bad": "siz gittim", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben gördüm", "bad": "ben gördün", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen gördün", "bad": "sen gördük", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz gördük", "bad": "biz gördünüz", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz gördünüz", "bad": "siz gördüm", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben yaptım", "bad": "ben yaptın", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen yaptın", "bad": "sen yaptık", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz yaptık", "bad": "biz yaptınız", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz yaptınız", "bad": "siz yaptım", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben aldım", "bad": "ben aldın", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen aldın", "bad": "sen aldık", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz aldık", "bad": "biz aldınız", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz aldınız", "bad": "siz aldım", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben verdim", "bad": "ben verdin", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen verdin", "bad": "sen verdik", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz verdik", "bad": "biz verdiniz", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz verdiniz", "bad": "siz verdim", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben bildim", "bad": "ben bildin", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen bildin", "bad": "sen bildik", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz bildik", "bad": "biz bildiniz", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz bildiniz", "bad": "siz bildim", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben okudum", "bad": "ben okudun", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen okudun", "bad": "sen okuduk", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz okuduk", "bad": "biz okudunuz", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz okudunuz", "bad": "siz okudum", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben yazdım", "bad": "ben yazdın", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen yazdın", "bad": "sen yazdık", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz yazdık", "bad": "biz yazdınız", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz yazdınız", "bad": "siz yazdım", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben sordum", "bad": "ben sordun", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen sordun", "bad": "sen sorduk", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz sorduk", "bad": "biz sordunuz", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz sordunuz", "bad": "siz sordum", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben sevdim", "bad": "ben sevdin", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen sevdin", "bad": "sen sevdik", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz sevdik", "bad": "biz sevdiniz", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz sevdiniz", "bad": "siz sevdim", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben koştum", "bad": "ben koştun", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen koştun", "bad": "sen koştuk", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz koştuk", "bad": "biz koştunuz", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz koştunuz", "bad": "siz koştum", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben durdum", "bad": "ben durdun", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen durdun", "bad": "sen durduk", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz durduk", "bad": "biz durdunuz", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz durdunuz", "bad": "siz durdum", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben kaldım", "bad": "ben kaldın", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen kaldın", "bad": "sen kaldık", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz kaldık", "bad": "biz kaldınız", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz kaldınız", "bad": "siz kaldım", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben buldum", "bad": "ben buldun", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen buldun", "bad": "sen bulduk", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz bulduk", "bad": "biz buldunuz", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz buldunuz", "bad": "siz buldum", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben baktım", "bad": "ben baktın", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen baktın", "bad": "sen baktık", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz baktık", "bad": "biz baktınız", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz baktınız", "bad": "siz baktım", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben anladım", "bad": "ben anladın", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen anladın", "bad": "sen anladık", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz anladık", "bad": "biz anladınız", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz anladınız", "bad": "siz anladım", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben istedim", "bad": "ben istedin", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen istedin", "bad": "sen istedik", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz istedik", "bad": "biz istediniz", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz istediniz", "bad": "siz istedim", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben söyledim", "bad": "ben söyledin", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen söyledin", "bad": "sen söyledik", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz söyledik", "bad": "biz söylediniz", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz söylediniz", "bad": "siz söyledim", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "agreement", "good": "ben çalıştım", "bad": "ben çalıştın", "note": "1SG subject; verb 1SG vs 2SG"}
+{"category": "agreement", "good": "sen çalıştın", "bad": "sen çalıştık", "note": "2SG subject; verb 2SG vs 1PL"}
+{"category": "agreement", "good": "biz çalıştık", "bad": "biz çalıştınız", "note": "1PL subject; verb 1PL vs 2PL"}
+{"category": "agreement", "good": "siz çalıştınız", "bad": "siz çalıştım", "note": "2PL subject; verb 2PL vs 1SG"}
+{"category": "possessive", "good": "benim evim", "bad": "benim evin", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin evin", "bad": "senin evimiz", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim evimiz", "bad": "bizim eviniz", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin eviniz", "bad": "sizin evim", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim kitabım", "bad": "benim kitabın", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin kitabın", "bad": "senin kitabımız", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim kitabımız", "bad": "bizim kitabınız", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin kitabınız", "bad": "sizin kitabım", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim masam", "bad": "benim masan", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin masan", "bad": "senin masamız", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim masamız", "bad": "bizim masanız", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin masanız", "bad": "sizin masam", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim arabam", "bad": "benim araban", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin araban", "bad": "senin arabamız", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim arabamız", "bad": "bizim arabanız", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin arabanız", "bad": "sizin arabam", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim okulum", "bad": "benim okulun", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin okulun", "bad": "senin okulumuz", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim okulumuz", "bad": "bizim okulunuz", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin okulunuz", "bad": "sizin okulum", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim kalemim", "bad": "benim kalemin", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin kalemin", "bad": "senin kalemimiz", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim kalemimiz", "bad": "bizim kaleminiz", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin kaleminiz", "bad": "sizin kalemim", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim yolum", "bad": "benim yolun", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin yolun", "bad": "senin yolumuz", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim yolumuz", "bad": "bizim yolunuz", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin yolunuz", "bad": "sizin yolum", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim gözüm", "bad": "benim gözün", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin gözün", "bad": "senin gözümüz", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim gözümüz", "bad": "bizim gözünüz", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin gözünüz", "bad": "sizin gözüm", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim kapım", "bad": "benim kapın", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin kapın", "bad": "senin kapımız", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim kapımız", "bad": "bizim kapınız", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin kapınız", "bad": "sizin kapım", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim çocuğum", "bad": "benim çocuğun", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin çocuğun", "bad": "senin çocuğumuz", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim çocuğumuz", "bad": "bizim çocuğunuz", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin çocuğunuz", "bad": "sizin çocuğum", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim ağacım", "bad": "benim ağacın", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin ağacın", "bad": "senin ağacımız", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim ağacımız", "bad": "bizim ağacınız", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin ağacınız", "bad": "sizin ağacım", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim kuşum", "bad": "benim kuşun", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin kuşun", "bad": "senin kuşumuz", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim kuşumuz", "bad": "bizim kuşunuz", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin kuşunuz", "bad": "sizin kuşum", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim denizim", "bad": "benim denizin", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin denizin", "bad": "senin denizimiz", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim denizimiz", "bad": "bizim deniziniz", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin deniziniz", "bad": "sizin denizim", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim şehirim", "bad": "benim şehirin", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin şehirin", "bad": "senin şehirimiz", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim şehirimiz", "bad": "bizim şehiriniz", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin şehiriniz", "bad": "sizin şehirim", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim renğim", "bad": "benim renğin", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin renğin", "bad": "senin renğimiz", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim renğimiz", "bad": "bizim renğiniz", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin renğiniz", "bad": "sizin renğim", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim dağım", "bad": "benim dağın", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin dağın", "bad": "senin dağımız", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim dağımız", "bad": "bizim dağınız", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin dağınız", "bad": "sizin dağım", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim yılım", "bad": "benim yılın", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin yılın", "bad": "senin yılımız", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim yılımız", "bad": "bizim yılınız", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin yılınız", "bad": "sizin yılım", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim günüm", "bad": "benim günün", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin günün", "bad": "senin günümüz", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim günümüz", "bad": "bizim gününüz", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin gününüz", "bad": "sizin günüm", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim sözüm", "bad": "benim sözün", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin sözün", "bad": "senin sözümüz", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim sözümüz", "bad": "bizim sözünüz", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin sözünüz", "bad": "sizin sözüm", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "possessive", "good": "benim elim", "bad": "benim elin", "note": "1SG possessor; noun 1SG vs 2SG"}
+{"category": "possessive", "good": "senin elin", "bad": "senin elimiz", "note": "2SG possessor; noun 2SG vs 1PL"}
+{"category": "possessive", "good": "bizim elimiz", "bad": "bizim eliniz", "note": "1PL possessor; noun 1PL vs 2PL"}
+{"category": "possessive", "good": "sizin eliniz", "bad": "sizin elim", "note": "2PL possessor; noun 2PL vs 1SG"}
+{"category": "harmony", "good": "evde", "bad": "evda", "note": "ev+LOC; harmony violation"}
+{"category": "harmony", "good": "eve", "bad": "eva", "note": "ev+DAT; harmony violation"}
+{"category": "harmony", "good": "evden", "bad": "evdan", "note": "ev+ABL; harmony violation"}
+{"category": "harmony", "good": "evler", "bad": "evlar", "note": "ev+PLUR; harmony violation"}
+{"category": "harmony", "good": "kitapta", "bad": "kitapte", "note": "kitap+LOC; harmony violation"}
+{"category": "harmony", "good": "kitaba", "bad": "kitabe", "note": "kitap+DAT; harmony violation"}
+{"category": "harmony", "good": "kitaptan", "bad": "kitapten", "note": "kitap+ABL; harmony violation"}
+{"category": "harmony", "good": "kitaplar", "bad": "kitapler", "note": "kitap+PLUR; harmony violation"}
+{"category": "harmony", "good": "masada", "bad": "masade", "note": "masa+LOC; harmony violation"}
+{"category": "harmony", "good": "masaya", "bad": "masaye", "note": "masa+DAT; harmony violation"}
+{"category": "harmony", "good": "masadan", "bad": "masaden", "note": "masa+ABL; harmony violation"}
+{"category": "harmony", "good": "masalar", "bad": "masaler", "note": "masa+PLUR; harmony violation"}
+{"category": "harmony", "good": "arabada", "bad": "arabade", "note": "araba+LOC; harmony violation"}
+{"category": "harmony", "good": "arabaya", "bad": "arabaye", "note": "araba+DAT; harmony violation"}
+{"category": "harmony", "good": "arabadan", "bad": "arabaden", "note": "araba+ABL; harmony violation"}
+{"category": "harmony", "good": "arabalar", "bad": "arabaler", "note": "araba+PLUR; harmony violation"}
+{"category": "harmony", "good": "okulda", "bad": "okulde", "note": "okul+LOC; harmony violation"}
+{"category": "harmony", "good": "okula", "bad": "okule", "note": "okul+DAT; harmony violation"}
+{"category": "harmony", "good": "okuldan", "bad": "okulden", "note": "okul+ABL; harmony violation"}
+{"category": "harmony", "good": "okullar", "bad": "okuller", "note": "okul+PLUR; harmony violation"}
+{"category": "harmony", "good": "kalemde", "bad": "kalemda", "note": "kalem+LOC; harmony violation"}
+{"category": "harmony", "good": "kaleme", "bad": "kalema", "note": "kalem+DAT; harmony violation"}
+{"category": "harmony", "good": "kalemden", "bad": "kalemdan", "note": "kalem+ABL; harmony violation"}
+{"category": "harmony", "good": "kalemler", "bad": "kalemlar", "note": "kalem+PLUR; harmony violation"}
+{"category": "harmony", "good": "yolda", "bad": "yolde", "note": "yol+LOC; harmony violation"}
+{"category": "harmony", "good": "yola", "bad": "yole", "note": "yol+DAT; harmony violation"}
+{"category": "harmony", "good": "yoldan", "bad": "yolden", "note": "yol+ABL; harmony violation"}
+{"category": "harmony", "good": "yollar", "bad": "yoller", "note": "yol+PLUR; harmony violation"}
+{"category": "harmony", "good": "gözde", "bad": "gözda", "note": "göz+LOC; harmony violation"}
+{"category": "harmony", "good": "göze", "bad": "göza", "note": "göz+DAT; harmony violation"}
+{"category": "harmony", "good": "gözden", "bad": "gözdan", "note": "göz+ABL; harmony violation"}
+{"category": "harmony", "good": "gözler", "bad": "gözlar", "note": "göz+PLUR; harmony violation"}
+{"category": "harmony", "good": "kapıda", "bad": "kapıde", "note": "kapı+LOC; harmony violation"}
+{"category": "harmony", "good": "kapıya", "bad": "kapıye", "note": "kapı+DAT; harmony violation"}
+{"category": "harmony", "good": "kapıdan", "bad": "kapıden", "note": "kapı+ABL; harmony violation"}
+{"category": "harmony", "good": "kapılar", "bad": "kapıler", "note": "kapı+PLUR; harmony violation"}
+{"category": "harmony", "good": "çocukta", "bad": "çocukte", "note": "çocuk+LOC; harmony violation"}
+{"category": "harmony", "good": "çocuğa", "bad": "çocuğe", "note": "çocuk+DAT; harmony violation"}
+{"category": "harmony", "good": "çocuktan", "bad": "çocukten", "note": "çocuk+ABL; harmony violation"}
+{"category": "harmony", "good": "çocuklar", "bad": "çocukler", "note": "çocuk+PLUR; harmony violation"}
+{"category": "harmony", "good": "ağaçta", "bad": "ağaçte", "note": "ağaç+LOC; harmony violation"}
+{"category": "harmony", "good": "ağaca", "bad": "ağace", "note": "ağaç+DAT; harmony violation"}
+{"category": "harmony", "good": "ağaçtan", "bad": "ağaçten", "note": "ağaç+ABL; harmony violation"}
+{"category": "harmony", "good": "ağaçlar", "bad": "ağaçler", "note": "ağaç+PLUR; harmony violation"}
+{"category": "harmony", "good": "kuşta", "bad": "kuşte", "note": "kuş+LOC; harmony violation"}
+{"category": "harmony", "good": "kuşa", "bad": "kuşe", "note": "kuş+DAT; harmony violation"}
+{"category": "harmony", "good": "kuştan", "bad": "kuşten", "note": "kuş+ABL; harmony violation"}
+{"category": "harmony", "good": "kuşlar", "bad": "kuşler", "note": "kuş+PLUR; harmony violation"}
+{"category": "harmony", "good": "denizde", "bad": "denizda", "note": "deniz+LOC; harmony violation"}
+{"category": "harmony", "good": "denize", "bad": "deniza", "note": "deniz+DAT; harmony violation"}
+{"category": "harmony", "good": "denizden", "bad": "denizdan", "note": "deniz+ABL; harmony violation"}
+{"category": "harmony", "good": "denizler", "bad": "denizlar", "note": "deniz+PLUR; harmony violation"}
+{"category": "harmony", "good": "şehirde", "bad": "şehirda", "note": "şehir+LOC; harmony violation"}
+{"category": "harmony", "good": "şehire", "bad": "şehira", "note": "şehir+DAT; harmony violation"}
+{"category": "harmony", "good": "şehirden", "bad": "şehirdan", "note": "şehir+ABL; harmony violation"}
+{"category": "harmony", "good": "şehirler", "bad": "şehirlar", "note": "şehir+PLUR; harmony violation"}
+{"category": "harmony", "good": "renkte", "bad": "renkta", "note": "renk+LOC; harmony violation"}
+{"category": "harmony", "good": "renğe", "bad": "renğa", "note": "renk+DAT; harmony violation"}
+{"category": "harmony", "good": "renkten", "bad": "renktan", "note": "renk+ABL; harmony violation"}
+{"category": "harmony", "good": "renkler", "bad": "renklar", "note": "renk+PLUR; harmony violation"}
+{"category": "harmony", "good": "dağda", "bad": "dağde", "note": "dağ+LOC; harmony violation"}
+{"category": "harmony", "good": "dağa", "bad": "dağe", "note": "dağ+DAT; harmony violation"}
+{"category": "harmony", "good": "dağdan", "bad": "dağden", "note": "dağ+ABL; harmony violation"}
+{"category": "harmony", "good": "dağlar", "bad": "dağler", "note": "dağ+PLUR; harmony violation"}
+{"category": "harmony", "good": "yılda", "bad": "yılde", "note": "yıl+LOC; harmony violation"}
+{"category": "harmony", "good": "yıla", "bad": "yıle", "note": "yıl+DAT; harmony violation"}
+{"category": "harmony", "good": "yıldan", "bad": "yılden", "note": "yıl+ABL; harmony violation"}
+{"category": "harmony", "good": "yıllar", "bad": "yıller", "note": "yıl+PLUR; harmony violation"}
+{"category": "harmony", "good": "günde", "bad": "günda", "note": "gün+LOC; harmony violation"}
+{"category": "harmony", "good": "güne", "bad": "güna", "note": "gün+DAT; harmony violation"}
+{"category": "harmony", "good": "günden", "bad": "gündan", "note": "gün+ABL; harmony violation"}
+{"category": "harmony", "good": "günler", "bad": "günlar", "note": "gün+PLUR; harmony violation"}
+{"category": "harmony", "good": "sözde", "bad": "sözda", "note": "söz+LOC; harmony violation"}
+{"category": "harmony", "good": "söze", "bad": "söza", "note": "söz+DAT; harmony violation"}
+{"category": "harmony", "good": "sözden", "bad": "sözdan", "note": "söz+ABL; harmony violation"}
+{"category": "harmony", "good": "sözler", "bad": "sözlar", "note": "söz+PLUR; harmony violation"}
+{"category": "harmony", "good": "elde", "bad": "elda", "note": "el+LOC; harmony violation"}
+{"category": "harmony", "good": "ele", "bad": "ela", "note": "el+DAT; harmony violation"}
+{"category": "harmony", "good": "elden", "bad": "eldan", "note": "el+ABL; harmony violation"}
+{"category": "harmony", "good": "eller", "bad": "ellar", "note": "el+PLUR; harmony violation"}

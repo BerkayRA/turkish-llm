@@ -103,6 +103,7 @@ set up to answer it.
 - [docs/METRICS.md](docs/METRICS.md) — fertility, tokens/morpheme, boundary precision/recall/F1, how to read them
 - [docs/USAGE.md](docs/USAGE.md) — setup and commands (prepare / train / evaluate)
 - [docs/EVALUATION.md](docs/EVALUATION.md) — methodology, reports, choosing a tokenizer
+- [docs/PROBING.md](docs/PROBING.md) — morphological probing benchmark (agreement, possessive, harmony)
 
 ## Layout
 
