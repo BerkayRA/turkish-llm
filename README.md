@@ -105,6 +105,8 @@ set up to answer it.
 - [docs/EVALUATION.md](docs/EVALUATION.md) — methodology, reports, choosing a tokenizer
 - [docs/PROBING.md](docs/PROBING.md) — morphological probing benchmark (agreement, possessive, harmony)
 - [docs/EXPERIMENT_AB.md](docs/EXPERIMENT_AB.md) — the tokenizer A/B experiment spec (morpheme-BPE vs Unigram)
+- [docs/GPU_OPS.md](docs/GPU_OPS.md) — running on the GPU cluster (NVIDIA BCM + Slurm + torchrun)
+- [STATUS.md](STATUS.md) — current status / handoff (start here)
 
 ## Layout
 

@@ -13,9 +13,13 @@ corpus*.txt
 # Generated artifacts
 data/
 models/
+cache/
+checkpoints/
 *.model
 *.vocab
+*.npy
 *.json.tmp
+slurm-*.out
 
 # OS
 .DS_Store

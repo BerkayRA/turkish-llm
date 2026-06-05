@@ -127,4 +127,50 @@ or kill**; multi-seed Phase 3 is required only to publish a positive claim.
 - Final experiment corpus size (bound by the analyzer pre-pass budget across your machines).
 - FLOP budget / token budgets per arm (derive from the chosen corpus size and a Chinchilla-ish ~20 tokens/param starting point).
 - Seed count for Phase 3 (≥3).
-- GPU allocation (how many of the machines for parallel seeds/arms).
+- GPU allocation (how many of the machines for parallel seeds/arms) — see `docs/GPU_OPS.md`.
+
+## 11. Concrete settings (refinement)
+
+### 11.1 Hyperparameters (Config A)
+- **Optimizer:** AdamW, β=(0.9, 0.95), ε=1e-8, weight decay 0.1 (exclude norms, biases, embeddings from decay).
+- **LR:** peak 6e-4, cosine decay to 6e-5 (10%), linear warmup over the first ~1% of steps (≈2000). Identical schedule for both arms; the FLOP-matched stop truncates the cosine at the same fraction.
+- **Global batch:** ~0.5M tokens/step (e.g. 1024 ctx × 512 seqs) via gradient accumulation; pick micro-batch to fit GPU memory, keep the global token count fixed across arms.
+- **Grad clip** 1.0; **dropout** 0.0 (pre-training); **init** std 0.02 with residual projections scaled by 1/√(2·n_layer) (GPT-2/nanoGPT init).
+- **Precision:** bf16 autocast, fp32 optimizer state. **Seq packing:** concatenate documents with `</s>` between; apply the same doc-boundary policy to both arms.
+
+### 11.2 Budget worked example (match-text + FLOP-matched)
+Illustrative, corpus = 400M words after Phase 1:
+- Tokens/epoch: U32 (fertility 1.526) ≈ 610M; M8 (1.303) ≈ 521M.
+- Total params (tied embeddings): U32 ≈ 85M + 32k·768 ≈ **110M**; M8 ≈ 85M + 48k·768 ≈ **122M**.
+- FLOPs ≈ 6·P·T. Pick U32 budget = 2.0B tokens → FLOP = 6·110e6·2.0e9 = 1.32e18.
+- Equalize: T_M8 = FLOP / (6·P_M8) = 1.32e18 / (6·122e6) ≈ **1.80B tokens**.
+- At equal FLOPs: U32 trains 2.0B tokens (~3.3 epochs), M8 1.80B (~3.5 epochs). Report **BPB vs FLOPs** across the whole curve. The **match-tokens** secondary run gives both 2.0B tokens.
+
+### 11.3 Data splits (line-level, built before tokenizing)
+- `corpus.norm.txt` → **train 98% / val 1% / test 1%**, by line; exact-dedup val+test vs train (line hash). Val = within-arm PPL/early-stop; **test** = final BPB (held out until Phase 3).
+- **Rare-inflection set:** select inflected word *types* with corpus frequency 1–5, remove every train line containing them, store `benchmarks/rare_inflection.jsonl` (stem, gold form, analyzer-generated distractors). Commit it.
+- Commit the **SHA-256** of `corpus.norm.txt` and each split into `reports/ab_<ts>.json`.
+
+### 11.4 Morpheme-BPE vocab freezer (the missing build piece)
+- **Vocab =** specials {0:`<pad>`,1:`<unk>`,2:`<s>`,3:`</s>`} ∪ 256 byte-fallback tokens (ids 4–259) ∪ {base morphemes above a min-frequency} ∪ {merged units from the merges list}. Persist `models/morpheme_bpe_8000.vocab.json`.
+- **Encode(word):** analyzer → morphemes → apply merges (`MorphemeBPE.encode`) → map symbols to ids; any symbol not in vocab → its UTF-8 **byte** tokens (unk-free, like the SP arms' `byte_fallback`).
+- **Decode:** concatenate symbol surfaces / bytes → UTF-8 (no analyzer needed).
+- Confirm final vocab ≈ 48k; **log val OOV/byte-fallback rate** — high rate contaminates BPB; fix before trusting it.
+
+### 11.5 BPB computation detail
+- Concatenate the test file's IDs; non-overlapping context-length windows; teacher-force; sum **natural-log** NLL over all targets. `BPB = ΣNLL / (ln2 · total_UTF8_bytes_of_test)`. Both arms tokenize the **identical** `test.txt`. Report BPC too.
+
+### 11.6 Artifact layout
+```
+turkish-llm/
+  data/        (gitignored)  corpus.norm.txt, train/val/test.txt
+  cache/       (gitignored)  <arm>/<split>.ids.npy + manifest.json (hashes)
+  models/      (gitignored)  sp_unigram_32000.model, morpheme_bpe_8000.{json,vocab.json}
+  checkpoints/ (gitignored)  <arm>/<seed>/{step_*.pt,best.pt,flopmatched.pt}
+  reports/     (tracked)     ab_*, bpb_*, probe_*  (.md + .json)
+  benchmarks/  (tracked)     probe.jsonl, rare_inflection.jsonl
+```
+`cache/` and `checkpoints/` are gitignored. Checkpoints carry {seed, corpus hash, tokenizer hash, step, tokens, FLOPs}.
+
+### 11.7 Determinism & reproducibility
+Fixed seed list; log torch/cuda versions + corpus/tokenizer hashes + full config into every checkpoint and report. A run is reproducible from {corpus hash, tokenizer file, config, seed}.
