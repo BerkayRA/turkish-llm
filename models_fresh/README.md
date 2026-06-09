@@ -32,11 +32,14 @@ Persisted corpus: `~/corpora/turkish-fresh-20260609/` (`train.txt`, `eval.txt`,
 | morpheme_bpe_8000 | 1.232 | 0.645 | 78.1% | 0.379 | 0.234 |
 | sp_unigram_32000 | 1.465 | 0.767 | 72.2% | 0.248 | 0.178 |
 | sp_unigram_16000 | 1.609 | 0.842 | 63.6% | 0.315 | 0.248 |
+| sp_morph_32000 | 2.039 | 1.067 | 35.1% | **0.657** | **0.643** |
+| sp_morph_16000 | 2.073 | 1.085 | 35.0% | 0.649 | 0.647 |
 | byte_bpe_32000 | 2.198 | 1.150 | 24.4% | 0.274 | 0.357 |
 | morpheme-aware (analyzer only) | 2.734 | 1.431 | 34.5% | 0.879 | 0.999 |
 | char | 6.504 | 3.404 | 1.4% | 0.283 | 0.999 |
 
-Full report: `reports/eval_20260609T102433Z.{md,json}`.
+Full reports: `reports/eval_20260609T102433Z.{md,json}` (without sp_morph) and
+`reports/eval_20260609T125623Z.{md,json}` (with sp_morph).
 
 ## Key findings
 
@@ -45,7 +48,18 @@ Full report: `reports/eval_20260609T102433Z.{md,json}`.
   training on far less data (a 5k-line morph sample).
 - **`byte_bpe_32000` degraded out-of-sample (1.78 → 2.20)** — it had overfit its training
   distribution more than the morphology-aware models, which generalize better.
-- Ordering is preserved and robust: morpheme_bpe ≫ sp_unigram ≫ byte_bpe.
+- **`sp_morph` trades fertility for alignment.** Trained on morpheme-segmented text but
+  tokenizing raw text at inference (no analyzer needed → fast, HF-exportable, *deployable*),
+  it is far more morpheme-aligned than any other subword model (**boundary-F1 0.657, recall
+  0.643** vs sp_unigram's 0.25/0.18) — but its fertility (**2.039**) is *worse* than
+  sp_unigram (1.465). So the fast-deployable morpheme-aware tokenizer does **not** match
+  `morpheme_bpe`'s compression; it's an alignment↔compression tradeoff.
+  *Caveat:* sp_morph was trained on the small 5k-line morph sample and SentencePiece
+  saturated at ~19k pieces (16k≈32k results confirm vocab starvation) — more
+  morpheme-segmented training data would likely lower its fertility.
+- **Practical takeaway:** best overall = `morpheme_bpe_20000` (1.158) but needs `tr_api` at
+  inference; best *deployable for compression* = `sp_unigram_32000` (1.465); best *deployable
+  for morpheme alignment* = `sp_morph_32000` (boundary-F1 0.66, fertility 2.04).
 
 ## Reproduce
 
@@ -72,4 +86,7 @@ uv run python scripts/export_text_corpus.py \
 - `byte_bpe_32000.json` — byte-level BPE (HF `tokenizers` format; loadable anywhere).
 - `morpheme_bpe_8000.json`, `morpheme_bpe_20000.json` — morpheme-aware BPE (custom: analyzer
   segmentation + merges; decode via `morpheme_bpe.MorphemeBPE.from_file`).
-- `sp_unigram_16000.{model,vocab}`, `sp_unigram_32000.{model,vocab}` — SentencePiece Unigram baselines.
+- `sp_unigram_16000.{model,vocab}`, `sp_unigram_32000.{model,vocab}` — SentencePiece Unigram baselines (trained on raw surface text).
+- `sp_morph_16000.{model,vocab}`, `sp_morph_32000.{model,vocab}` — SentencePiece Unigram trained on
+  **morpheme-segmented** text (deployable morpheme-aware tokenizer: no analyzer at inference).
+  Trained via `train_tokenizer.train_sentencepiece(sample.morph.fresh.txt, "models_fresh/sp_morph_<V>", V)`.
