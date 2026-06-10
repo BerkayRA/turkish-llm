@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "timestamp": "20260610T073847Z",
+    "corpus": "/Users/berkayra/corpora/turkish-fresh-20260609/eval.txt",
+    "corpus_words": 2767240,
+    "scored_words": 8000,
+    "limit": 8000,
+    "analyzer_morphemes_per_word": 1.9105
+  },
+  "results": [
+    {
+      "label": "whitespace",
+      "algorithm": "whitespace (baseline)",
+      "vocab_size": null,
+      "fertility": 1.0,
+      "tokens_per_morpheme": 0.5234231876472127,
+      "morphemes_per_word": 1.9105,
+      "single_token_pct": 100.0,
+      "boundary_precision": 0.0,
+      "boundary_recall": 0.0,
+      "boundary_f1": 0.0,
+      "aligned_pct": 100.0,
+      "words": 8000,
+      "subword_tokens": 8000
+    },
+    {
+      "label": "sp_morph_48000",
+      "algorithm": "SentencePiece Unigram, morpheme-trained",
+      "vocab_size": 48000,
+      "fertility": 1.4545,
+      "tokens_per_morpheme": 0.761319026432871,
+      "morphemes_per_word": 1.9105,
+      "single_token_pct": 67.2375,
+      "boundary_precision": 0.6415155440414507,
+      "boundary_recall": 0.2751388888888889,
+      "boundary_f1": 0.385108864696734,
+      "aligned_pct": 98.6875,
+      "words": 8000,
+      "subword_tokens": 11636
+    },
+    {
+      "label": "sp_morph_32000",
+      "algorithm": "SentencePiece Unigram, morpheme-trained",
+      "vocab_size": 32000,
+      "fertility": 1.507375,
+      "tokens_per_morpheme": 0.7889950274797174,
+      "morphemes_per_word": 1.9105,
+      "single_token_pct": 63.5625,
+      "boundary_precision": 0.657526421022565,
+      "boundary_recall": 0.31972222222222224,
+      "boundary_f1": 0.43024016447061025,
+      "aligned_pct": 98.6875,
+      "words": 8000,
+      "subword_tokens": 12059
+    },
+    {
+      "label": "sp_morph_16000",
+      "algorithm": "SentencePiece Unigram, morpheme-trained",
+      "vocab_size": 16000,
+      "fertility": 1.627,
+      "tokens_per_morpheme": 0.8516095263020151,
+      "morphemes_per_word": 1.9105,
+      "single_token_pct": 55.7125,
+      "boundary_precision": 0.663650757747116,
+      "boundary_recall": 0.4075,
+      "boundary_f1": 0.504947939075811,
+      "aligned_pct": 98.6875,
+      "words": 8000,
+      "subword_tokens": 13016
+    },
+    {
+      "label": "char",
+      "algorithm": "char (baseline)",
+      "vocab_size": null,
+      "fertility": 6.503875,
+      "tokens_per_morpheme": 3.404278984559016,
+      "morphemes_per_word": 1.9105,
+      "single_token_pct": 1.3625,
+      "boundary_precision": 0.1645885853148918,
+      "boundary_recall": 0.9988973121984838,
+      "boundary_f1": 0.2826112389346021,
+      "aligned_pct": 100.0,
+      "words": 8000,
+      "subword_tokens": 52031
+    }
+  ]
+}
